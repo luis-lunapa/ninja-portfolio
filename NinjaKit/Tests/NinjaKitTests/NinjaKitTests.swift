@@ -1,10 +1,11 @@
 import XCTest
 @testable import NinjaKit
 
-final class NinjaKitTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+/// This class lets us define common behaviour across all other *TestCases*
+class NinjaKitTests: XCTestCase {
+    
+    override func setUpWithError() throws {
+        // Common setup code for all test cases
+        
     }
 }
