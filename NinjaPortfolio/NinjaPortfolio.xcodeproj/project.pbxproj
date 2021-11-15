@@ -17,6 +17,8 @@
 		25544A4B2742FFCC00783F60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25544A212742FFC600783F60 /* ContentView.swift */; };
 		25544A4C2742FFCC00783F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25544A222742FFCC00783F60 /* Assets.xcassets */; };
 		25544A4D2742FFCC00783F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25544A222742FFCC00783F60 /* Assets.xcassets */; };
+		25544A61274307F200783F60 /* NinjaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 25544A60274307F200783F60 /* NinjaKit */; };
+		25544A632743080300783F60 /* NinjaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 25544A622743080300783F60 /* NinjaKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25544A61274307F200783F60 /* NinjaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25544A632743080300783F60 /* NinjaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +97,7 @@
 				25544A372742FFCC00783F60 /* Tests iOS */,
 				25544A432742FFCC00783F60 /* Tests macOS */,
 				25544A282742FFCC00783F60 /* Products */,
+				25544A5F274307F200783F60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +156,13 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		25544A5F274307F200783F60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,6 +179,9 @@
 			dependencies = (
 			);
 			name = "NinjaPortfolio (iOS)";
+			packageProductDependencies = (
+				25544A60274307F200783F60 /* NinjaKit */,
+			);
 			productName = "NinjaPortfolio (iOS)";
 			productReference = 25544A272742FFCC00783F60 /* NinjaPortfolio.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +199,9 @@
 			dependencies = (
 			);
 			name = "NinjaPortfolio (macOS)";
+			packageProductDependencies = (
+				25544A622743080300783F60 /* NinjaKit */,
+			);
 			productName = "NinjaPortfolio (macOS)";
 			productReference = 25544A2D2742FFCC00783F60 /* NinjaPortfolio.app */;
 			productType = "com.apple.product-type.application";
@@ -735,6 +753,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25544A60274307F200783F60 /* NinjaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NinjaKit;
+		};
+		25544A622743080300783F60 /* NinjaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NinjaKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 25544A1B2742FFC600783F60 /* Project object */;
 }
