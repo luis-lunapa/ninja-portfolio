@@ -16,6 +16,9 @@ import Foundation
 /// current `URLSession.Shared` or some mocking technique
 protocol RemoteService {
     
+    /// The session to use for all requests
+    var session: NetworkSession { get }
+    
     /// Performs the given network request, handles the common `URLError` and
     /// returns the output wrapped inside a customizable `Publisher`
     /// - Parameter request: The complete ``URLRequest`` to be executed
@@ -28,12 +31,13 @@ extension RemoteService {
     // Since in this exercise we are not making any actual request
     // the default implementation always returns a success condition
     func perform(request: URLRequest) -> AnyPublisher<Data, RemoteError> {
-        let serverResponse = "This should be a JSON or XML returned by the server"
-        let responseData = serverResponse.data(using: .utf8)!
-        
-        return Result.success(responseData)
-            .publisher
+        session
+            .loadData(from: request)
+            .mapError { RemoteError.url($0)}
+            .map(\.data)
             .eraseToAnyPublisher()
+        // Here goes any other common handling
+        // Eg. A retry when the session is expired 🤔
     }
 }
 

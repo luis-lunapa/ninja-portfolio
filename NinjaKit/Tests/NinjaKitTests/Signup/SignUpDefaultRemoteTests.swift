@@ -10,10 +10,13 @@ import Combine
 @testable import NinjaKit
 
 final class SignUpDefaultRemoteServiceTests: NinjaKitTests {
+    
+    var subcriptions = Set<AnyCancellable>()
+    
     /// This is an example of a test, in a real one we migh try with different payloads
     /// and assert the error or success corresponds to what we sent
     func testRegisterUser_Success() throws {
-        let session = MockNetworkSession(error: .appTransportSecurityRequiresSecureConnection)
+        let session = MockNetworkSession(error: URLError.badURL)
         
         let service = SignUpDefaultRemoteService(session: session)
         
@@ -25,9 +28,11 @@ final class SignUpDefaultRemoteServiceTests: NinjaKitTests {
                 if case let .failure(error) = completion {
                     XCTFail(String(describing: error))
                 }
-            } receiveValue: {
+            } receiveValue: { _ in
                 expect.fulfill()
             }
+            .store(in: &subcriptions)
+        
         waitForExpectations(timeout: 1, handler: nil)
     }
 }
