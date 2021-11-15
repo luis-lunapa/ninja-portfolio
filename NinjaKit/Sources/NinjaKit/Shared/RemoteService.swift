@@ -9,6 +9,11 @@ import Combine
 import Foundation
 
 /// Protocol that all performing a request or connection with a *remote service* conform to
+///
+/// This type allows us to create a unique shared way of handing common errors, output and behaviours
+/// Since this execise only requires one remote service it is not required
+/// The protocol also allows us to declare a default implemetation in a extension, which could be use the
+/// current `URLSession.Shared` or some mocking technique
 protocol RemoteService {
     
     /// Performs the given network request, handles the common `URLError` and
@@ -18,14 +23,28 @@ protocol RemoteService {
     func perform(request: URLRequest) -> AnyPublisher<Data, RemoteServiceError>
 }
 
+extension RemoteService {
+    
+    // Since in this exercise we are not making any actual request
+    // the default implementation always returns a success condition
+    func perform(request: URLRequest) -> AnyPublisher<Data, RemoteServiceError> {
+        let serverResponse = "This should be a JSON or XML returned by the server"
+        let responseData = serverResponse.data(using: .utf8)!
+        
+        return Result.success(responseData)
+            .publisher
+            .eraseToAnyPublisher()
+    }
+}
+
 /// Type that defines the possible errors returned by all *Remote services*
-protocol RemoteServiceError: Error {
+enum RemoteServiceError: Error {
     
     /// Error from API enabled page found
-    func url(_ error: URLError)
+    case url(URLError)
     
     /// Error with an unexpected *HTTP* status code
-    func status(_ code: Int)
+    case status(Int)
     
     // TODO: Add common errors
     // Remote service handles errors such as missing network, authentication errors,
