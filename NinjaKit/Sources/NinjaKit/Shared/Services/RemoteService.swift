@@ -20,14 +20,14 @@ protocol RemoteService {
     /// returns the output wrapped inside a customizable `Publisher`
     /// - Parameter request: The complete ``URLRequest`` to be executed
     /// - Returns: Erased published with the request result and error
-    func perform(request: URLRequest) -> AnyPublisher<Data, RemoteServiceError>
+    func perform(request: URLRequest) -> AnyPublisher<Data, RemoteError>
 }
 
 extension RemoteService {
     
     // Since in this exercise we are not making any actual request
     // the default implementation always returns a success condition
-    func perform(request: URLRequest) -> AnyPublisher<Data, RemoteServiceError> {
+    func perform(request: URLRequest) -> AnyPublisher<Data, RemoteError> {
         let serverResponse = "This should be a JSON or XML returned by the server"
         let responseData = serverResponse.data(using: .utf8)!
         
@@ -38,7 +38,7 @@ extension RemoteService {
 }
 
 /// Type that defines the possible errors returned by all *Remote services*
-enum RemoteServiceError: Error {
+enum RemoteError: Error {
     
     /// Error from API enabled page found
     case url(URLError)
