@@ -13,7 +13,7 @@ import Foundation
 protocol SignUpRemoteService: RemoteService {
     
     /// Registers the given user data payload in the server
-    /// - Parameter data: The encoded user data payload to send to the server
+    /// - Parameter user : The encoded user data payload to send to the server
     /// - Returns: Erased publisher with the server response to be decoded later
     func register(user data: Data) -> AnyPublisher<Data, SignUpRemoteServiceError>
 }
