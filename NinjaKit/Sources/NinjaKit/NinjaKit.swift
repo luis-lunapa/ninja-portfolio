@@ -1,6 +1,5 @@
 public struct NinjaKit {
-    public private(set) var text = "Hello, World!"
-
-    public init() {
-    }
+    
+    /// The current package version
+    public var version = "1.0.0"
 }
