@@ -9,10 +9,14 @@ import NinjaKit
 import SwiftUI
 
 struct SignUpView: View {
+    
+    @ObservedObject var viewModel: SignUpViewModel
+    
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             
             formHeading
+                .padding(.vertical, 25)
             
             formContent
             
@@ -20,36 +24,43 @@ struct SignUpView: View {
             
             formFooter
         }
+        .padding(.horizontal)
     }
     
     var formHeading: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(Strings.titleLabel.rawValue)
+                .bold()
+                .font(.largeTitle)
+                .padding(.bottom)
             
-            Text("Use the form below to submit your portfolio. An Email and password is required")
+            Group {
+                Text(Strings.subtitle1Label.rawValue)
+                Text(Strings.subtitle2Label.rawValue)
+            }
+            .font(.headline)
         }
     }
     
     var formContent: some View {
-        VStack {
-            TextField(Strings.nameField.rawValue,
-                      text: .constant(""))
-            
-            TextField(Strings.emailField.rawValue,
-                      text: .constant(""))
-            
-            TextField(Strings.passwordField.rawValue,
-                      text: .constant(""))
-            
-            TextField(Strings.websiteField.rawValue,
-                      text: .constant(""))
-            
-        }
+        SignUpFormView(name: $viewModel.name,
+                       email: $viewModel.email,
+                       password: $viewModel.password,
+                       website: $viewModel.password)
     }
     
     var formFooter: some View {
-        Button(Strings.submitButton.rawValue) {
-            // TODO: Call register
+        HStack {
+            Spacer()
+            Button(Strings.submitButton.rawValue) {
+                // TODO: Call register
+            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.roundedRectangle(radius: 15))
+            .controlSize(.large)
+            .tint(Color(#colorLiteral(red: 1, green: 0.253264904, blue: 0.1271932125, alpha: 1)))
+            
+            Spacer()
         }
     }
 }
@@ -60,16 +71,12 @@ extension SignUpView {
         case titleLabel = "signup_title_label"
         case subtitle1Label = "signup_subtitle1_label"
         case subtitle2Label = "signup_subtitle2_label"
-        case nameField = "signup_name_field"
-        case emailField = "signup_email_field"
-        case passwordField = "signup_password_field"
-        case websiteField = "signup_website_field"
         case submitButton = "signup_submit_button"
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView(viewModel: SignUpViewModel())
     }
 }
