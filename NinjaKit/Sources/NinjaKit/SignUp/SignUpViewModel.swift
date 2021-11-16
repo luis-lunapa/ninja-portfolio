@@ -16,7 +16,7 @@ public class SignUpViewModel: ObservableObject {
     /// The created user after calling the ``register``
     @Published internal(set) public var user: User?
     
-    @Published internal(set) public var error: VMError?
+    @Published public var error: VMError?
     
     // Signup form
     @Published public var name: String = ""
@@ -87,6 +87,8 @@ public class SignUpViewModel: ObservableObject {
         
         // Only check for a valid url if some is provided
         if !website.isEmpty {
+            // This check is naive since it only guarantees there are not any
+            // non URL characters. For a real implementation we can use a DataDetector
             if let url = URL(string: website) {
                 websiteURL = url
             } else {
