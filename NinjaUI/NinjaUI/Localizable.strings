@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  NinjaUI
+
+  Created by Luis Luna on 11/16/21.
+  
+*/
+
+// MARK: - Signup View
+
+"signup_title_label" = "Profile Creation";
+"signup_subtitle1_label" = "Use the form below to submit your portfolio.";
+"signup_subtitle2_label" = "An email and password are required.";
+"signup_name_field" = "First Name";
+"signup_email_field" = "Email Address";
+"signup_password_field" = "Password";
+"signup_website_field" = "Website";
+"signup_submit_button" = "Submit";
+
+"signup_error_missing-email" = "We need to know your email";
+"signup_error_missing-password" = "A password is required";
+"signup_error_missing-website" = "The site provided does not seem right, Could you check it again?";
+
+// MARK: - Confirmation View
+
+"confirmation_title_label" = "Hello, %@!";
+"confirmation_message_label" = "Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!";
+"confirmation_signin_button" = "Sign In";

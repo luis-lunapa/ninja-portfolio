@@ -12,6 +12,9 @@
 		253D54AB2744364100FE3E66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253D54AA2744364100FE3E66 /* Assets.xcassets */; };
 		253D54AE2744364100FE3E66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253D54AD2744364100FE3E66 /* Preview Assets.xcassets */; };
 		253D54B82744367B00FE3E66 /* NinjaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 253D54B72744367B00FE3E66 /* NinjaKit */; };
+		253D54BA274436B300FE3E66 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D54B9274436B300FE3E66 /* SignUpView.swift */; };
+		253D54BC274436C300FE3E66 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D54BB274436C300FE3E66 /* ConfirmationView.swift */; };
+		253D54BF2744398700FE3E66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253D54BE2744398700FE3E66 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		253D54AA2744364100FE3E66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		253D54AD2744364100FE3E66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		253D54B52744367300FE3E66 /* NinjaKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NinjaKit; path = ../NinjaKit; sourceTree = "<group>"; };
+		253D54B9274436B300FE3E66 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		253D54BB274436C300FE3E66 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		253D54BE2744398700FE3E66 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,9 @@
 			children = (
 				253D54A62744364000FE3E66 /* NinjaUIApp.swift */,
 				253D54A82744364000FE3E66 /* ContentView.swift */,
+				253D54BD274436C900FE3E66 /* SignUp */,
 				253D54AA2744364100FE3E66 /* Assets.xcassets */,
+				253D54BE2744398700FE3E66 /* Localizable.strings */,
 				253D54AC2744364100FE3E66 /* Preview Content */,
 			);
 			path = NinjaUI;
@@ -85,6 +93,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		253D54BD274436C900FE3E66 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				253D54B9274436B300FE3E66 /* SignUpView.swift */,
+				253D54BB274436C300FE3E66 /* ConfirmationView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				253D54AE2744364100FE3E66 /* Preview Assets.xcassets in Resources */,
+				253D54BF2744398700FE3E66 /* Localizable.strings in Resources */,
 				253D54AB2744364100FE3E66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				253D54A92744364000FE3E66 /* ContentView.swift in Sources */,
+				253D54BC274436C300FE3E66 /* ConfirmationView.swift in Sources */,
+				253D54BA274436B300FE3E66 /* SignUpView.swift in Sources */,
 				253D54A72744364000FE3E66 /* NinjaUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
