@@ -19,13 +19,13 @@ public class SignUpViewModel: ObservableObject {
     @Published internal(set) public var error: VMError?
     
     // Signup form
-    @Published var name: String = ""
+    @Published public var name: String = ""
     
-    @Published var email: String = ""
+    @Published public var email: String = ""
     
-    @Published var password: String = ""
+    @Published public var password: String = ""
     
-    @Published var website: String = ""
+    @Published public var website: String = ""
     
     // MARK: - Internal Properties
     var subcriptions = Set<AnyCancellable>()
@@ -33,7 +33,16 @@ public class SignUpViewModel: ObservableObject {
     // MARK: - Dependencies
     var repository: SignUpRepositoryProtocol
     
-    init(repository: SignUpRepositoryProtocol = SignUpDefaultRepository()) {
+    // Since we are missing factories I'm declaring the init as public to the client
+    // is able to instantiate it directly
+    
+    /// Creates a view model with the current production configuration
+    public convenience init() {
+        self.init(repository: SignUpDefaultRepository())
+    }
+    
+    /// Internal initializer that allows DI
+    init(repository: SignUpRepositoryProtocol) {
         self.repository = repository
     }
     
