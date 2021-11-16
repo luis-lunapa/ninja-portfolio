@@ -32,6 +32,7 @@ final class SignUpViewModelTests: NinjaKitTests {
         
         viewModel
             .$user
+            .dropFirst()
             .sink { user in
                 XCTAssertNotNil(user)
                 expect.fulfill()
@@ -54,7 +55,7 @@ final class SignUpViewModelTests: NinjaKitTests {
         
         viewModel
             .$error
-            .drop { $0 == nil }
+            .dropFirst()
             .sink { error in
                 if case SignUpViewModel.VMError.registration = error! {
                     expect.fulfill()

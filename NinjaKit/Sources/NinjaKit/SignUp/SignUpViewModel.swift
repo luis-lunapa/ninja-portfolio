@@ -41,11 +41,28 @@ public class SignUpViewModel: ObservableObject {
     
     /// Starts the registration process using the form data
     public func registerUser() {
-        // TODO: Implement Calls
+        guard let registrableUser = validateData() else {
+            // Here I can use some logger call to register the event
+            return
+        }
+        
+        repository
+            .register(user: registrableUser)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                if case .failure = completion {
+                    // Here I am ignoring the specific repository test
+                    self?.error = .registration
+                }
+                
+            } receiveValue: { [weak self] createdUser in
+                self?.user = createdUser
+            }
+            .store(in: &subcriptions)
     }
     
     // MARK: - Internal Methods
-    func validateData() -> User? {
+    func validateData() -> NinjaUser? {
         // We should validate the email address using a regex or data detector
         // For now I'm only gonna validate the password and email fields are not empty
         var missingRequiredFields: [FormFields] = []
