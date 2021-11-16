@@ -13,6 +13,11 @@ class SignUpDefaultRepository: SignUpRepositoryProtocol {
     
     var remote: SignUpRemoteService
     
+    /// Create a service that uses the given session
+    ///
+    /// We can use dependency injection to use our custom sessions
+    /// Also I can use Containers or Factories to resolve the dependencies of each part
+    /// but I'm keeping it simple for the exercise
     init(remote: SignUpRemoteService = SignUpDefaultRemoteService()) {
         self.remote = remote
     }
