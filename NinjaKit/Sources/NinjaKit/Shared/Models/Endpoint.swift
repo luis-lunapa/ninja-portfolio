@@ -23,6 +23,16 @@ protocol Endpoint {
     var authRequired: Bool { get }
 }
 
+// Default values for all endpoints
+extension Endpoint {
+    var method: HTTPMethod {
+        .get
+    }
+    var authRequired: Bool {
+        false
+    }
+}
+
 /// The supported *HTTP Verbs* for all ``Endpoint``
 ///
 /// This type removed the need to deal directly with ``String`` types
@@ -32,8 +42,13 @@ protocol Endpoint {
 enum HTTPMethod: String {
     
     /// The *GET* http verb
-    case `get` = "GET"
+    case `get`
     
     /// The *POST* http verb
-    case post = "POST"
+    case post
+    
+    /// The actual `String` value to use
+    var value: String {
+        rawValue.uppercased()
+    }
 }

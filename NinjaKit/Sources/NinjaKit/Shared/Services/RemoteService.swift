@@ -16,6 +16,13 @@ import Foundation
 /// current `URLSession.Shared` or some mocking technique
 protocol RemoteService {
     
+    /// The `URL` that all requests are made to
+    ///
+    /// We are assuming in this case there's a single URL
+    /// But when that's not the case we can have a session wrapper and inject it instead of this value
+    var url: URL { get }
+    
+    
     /// The session to use for all requests
     var session: NetworkSession { get }
     
@@ -24,6 +31,14 @@ protocol RemoteService {
     /// - Parameter request: The complete ``URLRequest`` to be executed
     /// - Returns: Erased published with the request result and error
     func perform(request: URLRequest) -> AnyPublisher<Data, RemoteError>
+
+}
+
+extension RemoteService {
+    // Using microsoft url as default for now
+    var url: URL {
+        URL(string: "https://www.microsoft.com")!
+    }
 }
 
 extension RemoteService {
