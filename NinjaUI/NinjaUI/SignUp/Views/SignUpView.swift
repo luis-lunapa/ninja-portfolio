@@ -61,7 +61,7 @@ struct SignUpView: View {
             .buttonStyle(.borderedProminent)
             .buttonBorderShape(.roundedRectangle(radius: 15))
             .controlSize(.large)
-            .tint(Color(#colorLiteral(red: 1, green: 0.253264904, blue: 0.1271932125, alpha: 1)))
+            .tint(Color.buttonColor)
             
             Spacer()
         }
@@ -92,42 +92,6 @@ struct SignUpView: View {
         return Alert(title: title,
                      message: message,
                      dismissButton: nil)
-    }
-}
-
-extension SignUpViewModel.FormFields {
-    
-    var localizedKey: LocalizedStringKey {
-        switch self {
-        case .email:
-            return SignUpView.Strings.emailError.rawValue
-        case .password:
-            return SignUpView.Strings.passwordError.rawValue
-        case .website:
-            return SignUpView.Strings.websiteError.rawValue
-        }
-    }
-}
-
-extension SignUpView {
-    
-    enum Strings: LocalizedStringKey {
-        case titleLabel = "signup_title_label"
-        case subtitle1Label = "signup_subtitle1_label"
-        case subtitle2Label = "signup_subtitle2_label"
-        case submitButton = "signup_submit_button"
-        
-        case formErrorTitle = "signup_error_alert_title_form"
-        case registrationErrorTitle = "signup_error_alert_title_register"
-        case emailError = "signup_error_missing-email"
-        case passwordError = "signup_error_missing-password"
-        case websiteError = "signup_error_missing-website"
-    }
-}
-
-extension SignUpViewModel.VMError: Identifiable {
-    public var id: String {
-        "\(self)"
     }
 }
 
