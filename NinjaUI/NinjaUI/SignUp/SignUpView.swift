@@ -11,8 +11,14 @@ import SwiftUI
 struct SignUpView: View {
     var body: some View {
         VStack {
+            
             formHeading
+            
             formContent
+            
+            Spacer()
+            
+            formFooter
         }
     }
     
@@ -26,9 +32,24 @@ struct SignUpView: View {
     
     var formContent: some View {
         VStack {
-            TextField(Strings.titleLabel.rawValue,
-                      text: .constant(""), prompt: nil)
+            TextField(Strings.nameField.rawValue,
+                      text: .constant(""))
             
+            TextField(Strings.emailField.rawValue,
+                      text: .constant(""))
+            
+            TextField(Strings.passwordField.rawValue,
+                      text: .constant(""))
+            
+            TextField(Strings.websiteField.rawValue,
+                      text: .constant(""))
+            
+        }
+    }
+    
+    var formFooter: some View {
+        Button(Strings.submitButton.rawValue) {
+            // TODO: Call register
         }
     }
 }
@@ -37,11 +58,13 @@ extension SignUpView {
     
     enum Strings: LocalizedStringKey {
         case titleLabel = "signup_title_label"
-        case subtitleLabel
-        case nameField = "fvd"
-        case emailField
-        case passwordField
-        case websiteField
+        case subtitle1Label = "signup_subtitle1_label"
+        case subtitle2Label = "signup_subtitle2_label"
+        case nameField = "signup_name_field"
+        case emailField = "signup_email_field"
+        case passwordField = "signup_password_field"
+        case websiteField = "signup_website_field"
+        case submitButton = "signup_submit_button"
     }
 }
 
