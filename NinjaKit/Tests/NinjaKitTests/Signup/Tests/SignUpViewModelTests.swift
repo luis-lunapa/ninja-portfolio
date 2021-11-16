@@ -12,10 +12,59 @@ import Combine
 final class SignUpViewModelTests: NinjaKitTests {
     
     var viewModel: SignUpViewModel!
+    var subscriptions = Set<AnyCancellable>()
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         viewModel = SignUpViewModel()
+    }
+    
+    // MARK: - Register tests
+    
+    func testRegisterValidatedUser() throws {
+        viewModel.repository = SignUpMockRepository()
+        viewModel.name = "John Smith"
+        viewModel.email = "test@email.com"
+        viewModel.password = "pass1234"
+        viewModel.website = "www.myweb.com"
+        
+        let expect = expectation(description: #function)
+        
+        viewModel
+            .$user
+            .sink { user in
+                XCTAssertNotNil(user)
+                expect.fulfill()
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.registerUser()
+        
+        waitForExpectations(timeout: 2)
+    }
+    
+    func testRegisterValidatedUserError() throws {
+        viewModel.repository = SignUpMockRepository(failure: true)
+        viewModel.name = "John Smith"
+        viewModel.email = "test@email.com"
+        viewModel.password = "pass1234"
+        viewModel.website = "www.myweb.com"
+        
+        let expect = expectation(description: #function)
+        
+        viewModel
+            .$error
+            .drop { $0 == nil }
+            .sink { error in
+                if case SignUpViewModel.VMError.registration = error! {
+                    expect.fulfill()
+                }
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.registerUser()
+        
+        waitForExpectations(timeout: 2)
     }
     
     // MARK: - Form validation tests
