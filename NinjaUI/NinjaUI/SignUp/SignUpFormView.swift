@@ -10,6 +10,9 @@ import SwiftUI
 /// Vertical stacked text fields for the main form
 struct SignUpFormView: View {
     
+    /// Determines wheter the password is visible in the UI
+    @State var showPassword: Bool = false
+    
     @Binding var name: String
     
     @Binding var email: String
@@ -19,21 +22,50 @@ struct SignUpFormView: View {
     @Binding var website: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             TextField(Strings.nameField.rawValue,
                       text: $name)
+                .keyboardType(.namePhonePad)
             
             TextField(Strings.emailField.rawValue,
                       text: $email)
+                .keyboardType(.emailAddress)
             
-            TextField(Strings.passwordField.rawValue,
-                      text: $password)
+            passwordField
             
             TextField(Strings.websiteField.rawValue,
                       text: $website)
+                .keyboardType(.URL)
             
         }
         .textFieldStyle(SmoothGrayRoundedTextFieldStyle())
+    }
+    
+    /// Field to input the password
+    var passwordField: some View {
+        VStack {
+            HStack {
+                if showPassword {
+                    TextField(Strings.passwordField.rawValue,
+                              text: $password)
+                } else {
+                    SecureField(text: $password) {
+                        Text(Strings.passwordField.rawValue)
+                    }
+                }
+                
+                if !password.isEmpty {
+                    Button {
+                        showPassword.toggle()
+                    } label: {
+                        Image(systemName: "eye")
+                            .tint(.primary)
+                    }
+                }
+                
+            }
+
+        }
     }
 }
 
@@ -41,10 +73,19 @@ struct SignUpFormView: View {
 
 extension SignUpFormView {
     
+    /// Localized strings associated with this view
     enum Strings: LocalizedStringKey {
+        
+        /// First Name
         case nameField = "signup_name_field"
+        
+        /// Email Address
         case emailField = "signup_email_field"
+        
+        /// Password
         case passwordField = "signup_password_field"
+        
+        /// Website
         case websiteField = "signup_website_field"
     }
 }
