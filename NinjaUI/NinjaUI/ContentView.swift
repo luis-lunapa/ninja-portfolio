@@ -20,6 +20,7 @@ struct ContentView: View {
                 
                 if viewModel.loading {
                     ProgressView()
+                        .progressViewStyle(DefaultProgressViewStyle())
                 }
             }
         }
