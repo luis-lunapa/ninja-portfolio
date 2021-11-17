@@ -79,12 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				253D54A62744364000FE3E66 /* NinjaUIApp.swift */,
-				253D54A82744364000FE3E66 /* ContentView.swift */,
-				25790CD027446F4300B6C29D /* Shared */,
-				253D54BD274436C900FE3E66 /* SignUp */,
-				253D54AA2744364100FE3E66 /* Assets.xcassets */,
-				253D54BE2744398700FE3E66 /* Localizable.strings */,
-				253D54AC2744364100FE3E66 /* Preview Content */,
+				2591EA5D2744BAC000AB8575 /* UI */,
+				2591EA5E2744BACC00AB8575 /* Resources */,
 			);
 			path = NinjaUI;
 			sourceTree = "<group>";
@@ -158,6 +154,26 @@
 				25790CD82744712000B6C29D /* SignUpViewModel+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2591EA5D2744BAC000AB8575 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				253D54A82744364000FE3E66 /* ContentView.swift */,
+				25790CD027446F4300B6C29D /* Shared */,
+				253D54BD274436C900FE3E66 /* SignUp */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2591EA5E2744BACC00AB8575 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				253D54AA2744364100FE3E66 /* Assets.xcassets */,
+				253D54BE2744398700FE3E66 /* Localizable.strings */,
+				253D54AC2744364100FE3E66 /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NinjaUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NinjaUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R5SGC6JP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -404,7 +420,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NinjaUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NinjaUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R5SGC6JP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
