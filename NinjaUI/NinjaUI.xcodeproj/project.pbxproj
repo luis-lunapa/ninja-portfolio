@@ -21,6 +21,8 @@
 		25790CD427446FA900B6C29D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25790CD327446FA900B6C29D /* Color+Extension.swift */; };
 		25790CD7274470EC00B6C29D /* SignUpView+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25790CD6274470EC00B6C29D /* SignUpView+Strings.swift */; };
 		25790CD92744712000B6C29D /* SignUpViewModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25790CD82744712000B6C29D /* SignUpViewModel+Extension.swift */; };
+		25C38E942744A21500BF9DDB /* SignUpFormView+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C38E932744A21500BF9DDB /* SignUpFormView+Strings.swift */; };
+		25C38E962744B11B00BF9DDB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C38E952744B11B00BF9DDB /* Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		25790CD327446FA900B6C29D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		25790CD6274470EC00B6C29D /* SignUpView+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpView+Strings.swift"; sourceTree = "<group>"; };
 		25790CD82744712000B6C29D /* SignUpViewModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Extension.swift"; sourceTree = "<group>"; };
+		25C38E932744A21500BF9DDB /* SignUpFormView+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpFormView+Strings.swift"; sourceTree = "<group>"; };
+		25C38E952744B11B00BF9DDB /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				25790CD127446F6800B6C29D /* Views */,
-				25790CD227446F7300B6C29D /* Components */,
 				25790CDA2744712500B6C29D /* Extensions */,
 			);
 			path = SignUp;
@@ -122,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				25790CCE27444C7200B6C29D /* SmoothGrayRoundedTextFieldStyle.swift */,
+				25C38E952744B11B00BF9DDB /* Localization.swift */,
 				25790CD5274470CD00B6C29D /* Extensions */,
 			);
 			path = Shared;
@@ -134,16 +138,10 @@
 				252F89C827448A5B00927381 /* ConfirmationView+Strings.swift */,
 				253D54B9274436B300FE3E66 /* SignUpView.swift */,
 				25790CD6274470EC00B6C29D /* SignUpView+Strings.swift */,
+				25790CCC2744472400B6C29D /* SignUpFormView.swift */,
+				25C38E932744A21500BF9DDB /* SignUpFormView+Strings.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		25790CD227446F7300B6C29D /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				25790CCC2744472400B6C29D /* SignUpFormView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		25790CD5274470CD00B6C29D /* Extensions */ = {
@@ -238,11 +236,13 @@
 			files = (
 				25790CCD2744472400B6C29D /* SignUpFormView.swift in Sources */,
 				25790CD7274470EC00B6C29D /* SignUpView+Strings.swift in Sources */,
+				25C38E962744B11B00BF9DDB /* Localization.swift in Sources */,
 				25790CD427446FA900B6C29D /* Color+Extension.swift in Sources */,
 				253D54A92744364000FE3E66 /* ContentView.swift in Sources */,
 				253D54BC274436C300FE3E66 /* ConfirmationView.swift in Sources */,
 				25790CD92744712000B6C29D /* SignUpViewModel+Extension.swift in Sources */,
 				252F89C927448A5B00927381 /* ConfirmationView+Strings.swift in Sources */,
+				25C38E942744A21500BF9DDB /* SignUpFormView+Strings.swift in Sources */,
 				253D54BA274436B300FE3E66 /* SignUpView.swift in Sources */,
 				25790CCF27444C7200B6C29D /* SmoothGrayRoundedTextFieldStyle.swift in Sources */,
 				253D54A72744364000FE3E66 /* NinjaUIApp.swift in Sources */,

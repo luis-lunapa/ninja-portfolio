@@ -10,7 +10,7 @@ import SwiftUI
 extension ConfirmationView {
     
     /// Localized strings in this view
-    enum Strings: LocalizedStringKey {
+    enum Strings: LocaleString, LocaleList {
         
         /// Hello, ``User/name```!
         case titleLabel = "confirmation_title_label"
@@ -21,5 +21,6 @@ extension ConfirmationView {
         
         /// Sign In
         case signinButton = "confirmation_signin_button"
+        
     }
 }

@@ -8,6 +8,7 @@
 import NinjaKit
 import SwiftUI
 
+/// View that contains the form to create a new account
 struct SignUpView: View {
     
     @ObservedObject var viewModel: SignUpViewModel

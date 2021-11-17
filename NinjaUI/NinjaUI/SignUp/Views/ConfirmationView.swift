@@ -15,12 +15,12 @@ struct ConfirmationView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(Strings.titleLabel.rawValue)
+            Text(Strings.titleLabel.inject("Pedro", "Dana"))
                 .bold()
                 .font(.largeTitle)
                 .padding(.bottom)
             
-            Text(Strings.subtitleLabel.rawValue)
+            Text(Strings.subtitleLabel.localized)
                 .font(.headline)
                 .padding(.bottom)
             
@@ -44,7 +44,7 @@ struct ConfirmationView: View {
             
             HStack {
                 Spacer()
-                Button(Strings.signinButton.rawValue) {
+                Button(Strings.signinButton.localized) {
                     // Some final action
                 }
                 .buttonStyle(.borderedProminent)

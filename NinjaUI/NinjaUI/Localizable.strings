@@ -26,6 +26,6 @@
 
 // MARK: - Confirmation View
 
-"confirmation_title_label" = "Hello, %@!";
+"confirmation_title_label" = "Hello, %0@!";
 "confirmation_message_label" = "Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!";
 "confirmation_signin_button" = "Sign In";

@@ -10,10 +10,20 @@ import SwiftUI
 
 /// Root content view
 struct ContentView: View {
+    
+    @StateObject var viewModel = SignUpViewModel()
+    
     var body: some View {
         NavigationView {
-            SignUpView(viewModel: SignUpViewModel())            
+            ZStack {
+                SignUpView(viewModel: viewModel)
+                
+                if viewModel.loading {
+                    ProgressView()
+                }
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

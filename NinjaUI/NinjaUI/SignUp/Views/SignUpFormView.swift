@@ -69,27 +69,6 @@ struct SignUpFormView: View {
     }
 }
 
-
-
-extension SignUpFormView {
-    
-    /// Localized strings associated with this view
-    enum Strings: LocalizedStringKey {
-        
-        /// First Name
-        case nameField = "signup_name_field"
-        
-        /// Email Address
-        case emailField = "signup_email_field"
-        
-        /// Password
-        case passwordField = "signup_password_field"
-        
-        /// Website
-        case websiteField = "signup_website_field"
-    }
-}
-
 struct SignUpFormView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpFormView(name: .constant(""),
