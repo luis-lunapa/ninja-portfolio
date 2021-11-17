@@ -8,6 +8,7 @@
 import NinjaKit
 import SwiftUI
 
+/// View that displays the signup confirmation
 struct ConfirmationView: View {
     
     var user: User
@@ -58,23 +59,6 @@ struct ConfirmationView: View {
         }
         .padding()
         .navigationBarHidden(true)
-    }
-}
-
-extension ConfirmationView {
-    
-    /// Localized strings in this view
-    enum Strings: LocalizedStringKey {
-        
-        /// Hello, ``User/name```!
-        case titleLabel = "confirmation_title_label"
-        
-        /// Your super-awesome portfolio has been successfully submitted!
-        /// The details below will be public within your community!
-        case subtitleLabel = "confirmation_message_label"
-        
-        /// Sign In
-        case signinButton = "confirmation_signin_button"
     }
 }
 
