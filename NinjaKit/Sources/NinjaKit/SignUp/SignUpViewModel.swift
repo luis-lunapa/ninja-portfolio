@@ -16,7 +16,11 @@ public class SignUpViewModel: ObservableObject {
     /// The created user after calling the ``register``
     @Published internal(set) public var user: User?
     
+    /// There was an error while performing some operation
     @Published public var error: VMError?
+    
+    /// There is an operation on course
+    @Published public var loading: Bool = false
     
     // Signup form
     @Published public var name: String = ""
@@ -54,7 +58,7 @@ public class SignUpViewModel: ObservableObject {
             // Here I can use some logger call to register the event
             return
         }
-        
+        loading = true
         repository
             .register(user: registrableUser)
             .receive(on: DispatchQueue.main)
@@ -63,7 +67,7 @@ public class SignUpViewModel: ObservableObject {
                     // Here I am ignoring the specific repository test
                     self?.error = .registration
                 }
-                
+                self?.loading = false
             } receiveValue: { [weak self] createdUser in
                 self?.user = createdUser
             }

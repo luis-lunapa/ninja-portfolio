@@ -29,13 +29,19 @@ class SignUpDefaultRemoteService: SignUpRemoteService {
         var request = URLRequest(url: url) // We are ignoring the endpoint path (Excersise purposes)
         request.httpMethod = endpoint.method.value
         
-        return perform(request: request)
-            .mapError { SignUpRemoteServiceError.remote($0)}
-            .map { _ in data } // Here we are injecting the given data like a real server response
+        // Normally this would be implemented like:
+        //  return perform(request: request)
+        // .mapError { SignUpRemoteServiceError.remote($0)}
+        // .eraseToAnyPublisher()
+        
+        // But for this exersice I will return the same data righ away
+        return Result
+            .success(data)
+            .publisher
             .eraseToAnyPublisher()
+        
     }
 }
-
 
 extension SignUpDefaultRemoteService {
     
