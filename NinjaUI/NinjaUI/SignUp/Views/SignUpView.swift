@@ -15,26 +15,28 @@ struct SignUpView: View {
     @State var showConfirmation: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            formHeading
-                .padding(.vertical, 25)
-            
-            formContent
-            
-            Spacer()
-            
-            formFooter
-            
-            if let user = viewModel.user {
-                NavigationLink(destination: ConfirmationView(user: user),
-                               isActive: $showConfirmation) {
-                    EmptyView()
-                }
-                .onAppear {
-                    showConfirmation = true
+        VStack {
+            VStack(alignment: .leading) {
+                
+                formHeading
+                    .padding(.vertical, 25)
+                
+                formContent
+                
+                Spacer()
+                
+                if let user = viewModel.user {
+                    NavigationLink(destination: ConfirmationView(user: user),
+                                   isActive: $showConfirmation) {
+                        EmptyView()
+                    }
+                                   .onAppear {
+                                       showConfirmation = true
+                                   }
                 }
             }
+            
+            formFooter
         }
         .padding(.horizontal)
         .navigationBarHidden(true)
@@ -66,18 +68,16 @@ struct SignUpView: View {
     }
     
     var formFooter: some View {
-        HStack {
-            Spacer()
-            Button(Strings.submitButton.localized) {
-                viewModel.registerUser()
-            }
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.roundedRectangle(radius: 15))
-            .controlSize(.large)
-            .tint(Color.buttonColor)
-            
-            Spacer()
+        Button {
+            viewModel.registerUser()
+        } label: {
+            Text(Strings.submitButton.localized)
+                .frame(maxWidth: .infinity)
         }
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.roundedRectangle(radius: 15))
+        .controlSize(.large)
+        .tint(Color.buttonColor)
         .padding(.bottom)
     }
     
