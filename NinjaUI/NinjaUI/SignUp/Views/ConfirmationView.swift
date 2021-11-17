@@ -5,16 +5,63 @@
 //  Created by Luis Luna on 11/16/21.
 //
 
+import NinjaKit
 import SwiftUI
 
 struct ConfirmationView: View {
+    
+    var user: User
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(Strings.titleLabel.rawValue)
+            Text(Strings.subtitleLabel.rawValue)
+            
+            if let url = user.website {
+                Link(url.absoluteString, destination: url)
+            }
+            
+            if let name = user.name {
+                Text(name)
+            }
+            
+            Text(user.email)
+            
+        }
+        .navigationBarHidden(true)
+    }
+}
+
+extension ConfirmationView {
+    
+    /// Localized strings in this view
+    enum Strings: LocalizedStringKey {
+        
+        /// Hello, ``User/name```!
+        case titleLabel = "confirmation_title_label"
+        
+        /// Your super-awesome portfolio has been successfully submitted!
+        /// The details below will be public within your community!
+        case subtitleLabel = "confirmation_message_label"
+        
+        /// Sign In
+        case signinButton = "confirmation_signin_button"
     }
 }
 
 struct ConfirmationView_Previews: PreviewProvider {
+    
+    struct PreviewUser: User {
+        var name: String? = "John Test"
+        
+        var email: String = "test@email.com"
+        
+        var password: String = "12345"
+        
+        var website: URL? = URL(string: "https://microsoft.com")
+        
+    }
     static var previews: some View {
-        ConfirmationView()
+        ConfirmationView(user: PreviewUser())
     }
 }

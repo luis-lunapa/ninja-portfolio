@@ -11,7 +11,9 @@ import SwiftUI
 /// Root content view
 struct ContentView: View {
     var body: some View {
-        SignUpView(viewModel: SignUpViewModel())
+        NavigationView {
+            SignUpView(viewModel: SignUpViewModel())            
+        }
     }
 }
 

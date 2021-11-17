@@ -11,6 +11,7 @@ import SwiftUI
 struct SignUpView: View {
     
     @ObservedObject var viewModel: SignUpViewModel
+    @State var showConfirmation: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,8 +24,19 @@ struct SignUpView: View {
             Spacer()
             
             formFooter
+            
+            if let user = viewModel.user {
+                NavigationLink(destination: ConfirmationView(user: user),
+                               isActive: $showConfirmation) {
+                    EmptyView()
+                }
+                .onAppear {
+                    showConfirmation = true
+                }
+            }
         }
         .padding(.horizontal)
+        .navigationBarHidden(true)
         .alert(item: $viewModel.error) { error in
             makeAlert(for: error)
         }
