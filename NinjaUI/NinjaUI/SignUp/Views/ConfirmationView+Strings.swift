@@ -22,5 +22,8 @@ extension ConfirmationView {
         /// Sign In
         case signinButton = "confirmation_signin_button"
         
+        /// Dear User
+        case defaultName = "confirmation_default_name"
+        
     }
 }

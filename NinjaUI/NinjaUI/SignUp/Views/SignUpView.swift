@@ -45,14 +45,14 @@ struct SignUpView: View {
     
     var formHeading: some View {
         VStack(alignment: .leading) {
-            Text(Strings.titleLabel.rawValue)
+            Text(Strings.titleLabel.localized)
                 .bold()
                 .font(.largeTitle)
                 .padding(.bottom)
             
             Group {
-                Text(Strings.subtitle1Label.rawValue)
-                Text(Strings.subtitle2Label.rawValue)
+                Text(Strings.subtitle1Label.localized)
+                Text(Strings.subtitle2Label.localized)
             }
             .font(.headline)
         }
@@ -68,7 +68,7 @@ struct SignUpView: View {
     var formFooter: some View {
         HStack {
             Spacer()
-            Button(Strings.submitButton.rawValue) {
+            Button(Strings.submitButton.localized) {
                 viewModel.registerUser()
             }
             .buttonStyle(.borderedProminent)
@@ -92,14 +92,14 @@ struct SignUpView: View {
         
         switch error {
         case let .missingFields(fields):
-            title = Text(Strings.formErrorTitle.rawValue)
+            title = Text(Strings.formErrorTitle.localized)
             message = fields
                 .reduce(Text("")) { text, field in
                     text + Text(field.localizedKey) + Text("\n")
                 }
             
         case .registration:
-            title = Text(Strings.registrationErrorTitle.rawValue)
+            title = Text(Strings.registrationErrorTitle.localized)
         }
         
         return Alert(title: title,

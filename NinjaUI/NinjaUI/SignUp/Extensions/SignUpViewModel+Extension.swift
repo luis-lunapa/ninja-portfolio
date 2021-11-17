@@ -10,14 +10,14 @@ import SwiftUI
 
 extension SignUpViewModel.FormFields {
     
-    var localizedKey: LocalizedStringKey {
+    var localizedKey: String {
         switch self {
         case .email:
-            return SignUpView.Strings.emailError.rawValue
+            return SignUpView.Strings.emailError.localized
         case .password:
-            return SignUpView.Strings.passwordError.rawValue
+            return SignUpView.Strings.passwordError.localized
         case .website:
-            return SignUpView.Strings.websiteError.rawValue
+            return SignUpView.Strings.websiteError.localized
         }
     }
 }

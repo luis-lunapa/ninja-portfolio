@@ -23,17 +23,17 @@ struct SignUpFormView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            TextField(Strings.nameField.rawValue,
+            TextField(Strings.nameField.localized,
                       text: $name)
                 .keyboardType(.namePhonePad)
             
-            TextField(Strings.emailField.rawValue,
+            TextField(Strings.emailField.localized,
                       text: $email)
                 .keyboardType(.emailAddress)
             
             passwordField
             
-            TextField(Strings.websiteField.rawValue,
+            TextField(Strings.websiteField.localized,
                       text: $website)
                 .keyboardType(.URL)
             
@@ -46,11 +46,11 @@ struct SignUpFormView: View {
         VStack {
             HStack {
                 if showPassword {
-                    TextField(Strings.passwordField.rawValue,
+                    TextField(Strings.passwordField.localized,
                               text: $password)
                 } else {
                     SecureField(text: $password) {
-                        Text(Strings.passwordField.rawValue)
+                        Text(Strings.passwordField.localized)
                     }
                 }
                 

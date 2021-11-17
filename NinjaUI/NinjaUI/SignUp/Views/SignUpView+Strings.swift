@@ -12,7 +12,7 @@ extension SignUpView {
     /// Localized strings in this view
     /// I always provide the value for the default locale so its easy to see the value
     /// from the code
-    enum Strings: LocalizedStringKey {
+    enum Strings: LocaleString, LocaleList {
         
         /// Profile Creation
         case titleLabel = "signup_title_label"

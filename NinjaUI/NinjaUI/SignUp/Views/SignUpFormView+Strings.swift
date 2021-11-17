@@ -10,7 +10,7 @@ import SwiftUI
 extension SignUpFormView {
     
     /// Localized strings associated with this view
-    enum Strings: LocalizedStringKey {
+    enum Strings: LocaleString, LocaleList {
         
         /// First Name
         case nameField = "signup_name_field"

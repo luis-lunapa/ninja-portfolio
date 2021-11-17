@@ -15,7 +15,7 @@ struct ConfirmationView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(Strings.titleLabel.inject("Pedro", "Dana"))
+            Text(Strings.titleLabel.inject(user.name ?? Strings.defaultName.localized))
                 .bold()
                 .font(.largeTitle)
                 .padding(.bottom)
