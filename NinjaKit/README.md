@@ -12,6 +12,8 @@ this execise I'm just embeding it inside the same repo.
 
 - I'm using MVVM architecure and everithing is protocol oriented, so I can easily change the implementations and get an excellent level of testability.
 
+- Some implementations are only for demostration purposes when indicated inside the code.
+
 ## Architecture overview:
 
 ![Simple Architecture Diagram](.readme/ninjakit_arch.png)
