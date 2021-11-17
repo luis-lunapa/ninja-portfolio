@@ -13,21 +13,50 @@ struct ConfirmationView: View {
     var user: User
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(Strings.titleLabel.rawValue)
+                .bold()
+                .font(.largeTitle)
+                .padding(.bottom)
+            
             Text(Strings.subtitleLabel.rawValue)
+                .font(.headline)
+                .padding(.bottom)
             
-            if let url = user.website {
-                Link(url.absoluteString, destination: url)
+            HStack {
+                Spacer()
+                VStack(spacing: 15) {
+                    if let url = user.website {
+                        Link(url.absoluteString, destination: url)
+                    }
+                    
+                    if let name = user.name {
+                        Text(name)
+                    }
+                    
+                    Text(user.email)
+                }
+                Spacer()
             }
             
-            if let name = user.name {
-                Text(name)
-            }
+            Spacer()
             
-            Text(user.email)
+            HStack {
+                Spacer()
+                Button(Strings.signinButton.rawValue) {
+                    // Some final action
+                }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 15))
+                .controlSize(.large)
+                .tint(Color.buttonColor)
+                
+                Spacer()
+            }
+            .padding(.bottom)
             
         }
+        .padding()
         .navigationBarHidden(true)
     }
 }
